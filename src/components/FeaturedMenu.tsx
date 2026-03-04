@@ -1,33 +1,14 @@
+import { ArrowRight } from "lucide-react";
 import menuChianina from "@/assets/menu-chianina.jpg";
 import menuCinta from "@/assets/menu-cinta.jpg";
 import menuColazione from "@/assets/menu-colazione.jpg";
 import menuTiramisu from "@/assets/menu-tiramisu.jpg";
 
 const items = [
-  {
-    image: menuChianina,
-    name: "Panino Chianina",
-    desc: "Il re del menu. Manzo chianino, cheddar, salse artigianali.",
-    price: "€10–14",
-  },
-  {
-    image: menuCinta,
-    name: "Panino Cinta Senese",
-    desc: "Maiale di razza toscana, formaggi misti, salsa BBQ.",
-    price: "€10–14",
-  },
-  {
-    image: menuColazione,
-    name: "Colazione dell'Operaio",
-    desc: "Per i veri affamati. Salsiccia, uovo, bacon, fritti.",
-    price: "€12–16",
-  },
-  {
-    image: menuTiramisu,
-    name: "Tiramisù",
-    desc: "Il dolce che ha conquistato Firenze.",
-    price: "€4–6",
-  },
+  { image: menuChianina, name: "Panino Chianina", desc: "Il re del menu. Manzo chianino, cheddar, salse artigianali.", price: "€10–14" },
+  { image: menuCinta, name: "Panino Cinta Senese", desc: "Maiale di razza toscana, formaggi misti, salsa BBQ.", price: "€10–14" },
+  { image: menuColazione, name: "Colazione dell'Operaio", desc: "Per i veri affamati. Salsiccia, uovo, bacon, fritti.", price: "€12–16" },
+  { image: menuTiramisu, name: "Tiramisù", desc: "Il dolce che ha conquistato Firenze.", price: "€4–6" },
 ];
 
 const FeaturedMenu = () => {
@@ -43,17 +24,9 @@ const FeaturedMenu = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {items.map((item, i) => (
-            <div
-              key={i}
-              className="group rounded-xl overflow-hidden bg-card border border-border food-card-hover cursor-pointer"
-            >
+            <div key={i} className="group rounded-xl overflow-hidden bg-card border border-border food-card-hover cursor-pointer">
               <div className="aspect-square overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-full h-full object-cover food-image transition-transform duration-500 group-hover:scale-110"
-                  loading="lazy"
-                />
+                <img src={item.image} alt={item.name} className="w-full h-full object-cover food-image transition-transform duration-500 group-hover:scale-110" loading="lazy" />
               </div>
               <div className="p-5">
                 <div className="flex items-center justify-between mb-2">
@@ -61,13 +34,8 @@ const FeaturedMenu = () => {
                   <span className="text-primary font-accent font-bold text-sm">{item.price}</span>
                 </div>
                 <p className="text-muted-foreground text-sm mb-4">{item.desc}</p>
-                <a
-                  href="https://deliveroo.it"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-primary font-accent text-sm uppercase tracking-wider hover:underline"
-                >
-                  Ordina →
+                <a href="https://deliveroo.it" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-primary font-accent text-sm uppercase tracking-wider hover:underline">
+                  Ordina <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             </div>
@@ -75,13 +43,9 @@ const FeaturedMenu = () => {
         </div>
 
         <div className="text-center mt-10">
-          <a
-            href="https://deliveroo.it"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors font-accent uppercase tracking-wider text-sm"
-          >
-            → Vedi tutto il menu su Deliveroo
+          <a href="https://deliveroo.it" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors font-accent uppercase tracking-wider text-sm">
+            <ArrowRight className="w-4 h-4" />
+            Vedi tutto il menu su Deliveroo
           </a>
         </div>
       </div>

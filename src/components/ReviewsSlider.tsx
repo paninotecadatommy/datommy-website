@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Star } from "lucide-react";
 
 const reviews = [
   { text: "Il miglior panino di tutta Firenze — se potessi mangiarlo ogni giorno lo farei!", name: "Marco" },
@@ -8,6 +9,14 @@ const reviews = [
   { text: "Aperto fino a tardi in zona Novoli — in zona non ci sono panini più buoni.", name: "Luca" },
   { text: "Hamburger ottimi, possibilità di condirli con praticamente tutto.", name: "Francesca" },
 ];
+
+const FiveStars = () => (
+  <div className="flex items-center justify-center gap-1 mb-4">
+    {Array.from({ length: 5 }).map((_, i) => (
+      <Star key={i} className="w-5 h-5 text-accent fill-accent" />
+    ))}
+  </div>
+);
 
 const ReviewsSlider = () => {
   const [current, setCurrent] = useState(0);
@@ -25,7 +34,8 @@ const ReviewsSlider = () => {
       <div className="container">
         <div className="text-center mb-4">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-4 py-2 mb-6">
-            <span className="shimmer font-accent font-bold">⭐ 4.4</span>
+            <Star className="w-4 h-4 text-accent fill-accent" />
+            <span className="shimmer font-accent font-bold">4.4</span>
             <span className="text-muted-foreground text-sm">· Oltre 700 Recensioni su Google</span>
           </div>
         </div>
@@ -41,7 +51,7 @@ const ReviewsSlider = () => {
             {reviews.map((r, i) => (
               <div key={i} className="min-w-full px-4">
                 <div className="max-w-2xl mx-auto text-center bg-card border border-border rounded-2xl p-8 md:p-12">
-                  <div className="text-accent text-2xl mb-4">★★★★★</div>
+                  <FiveStars />
                   <p className="font-serif italic text-lg md:text-xl leading-relaxed mb-6">
                     "{r.text}"
                   </p>
@@ -53,7 +63,6 @@ const ReviewsSlider = () => {
             ))}
           </div>
 
-          {/* Dots */}
           <div className="flex justify-center gap-2 mt-8">
             {reviews.map((_, i) => (
               <button
