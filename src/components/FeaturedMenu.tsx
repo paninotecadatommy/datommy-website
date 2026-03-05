@@ -54,7 +54,7 @@ const FeaturedMenu = () => {
                   <span className="text-primary font-accent font-bold text-sm">{item.price}</span>
                 </div>
                 <p className="text-muted-foreground text-sm mb-4">{item.desc}</p>
-                <a href="https://deliveroo.it" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-primary font-accent text-sm uppercase tracking-wider hover:underline">
+                <a href="https://deliveroo.it/it/menu/firenze/novoli-rifredi/paninoteca-da-tommy/?day=TODAY&time=19%3A15&timestamp=1772734500" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-primary font-accent text-sm uppercase tracking-wider hover:underline">
                   Ordina <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
