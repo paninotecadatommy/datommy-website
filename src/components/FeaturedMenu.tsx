@@ -5,10 +5,30 @@ import menuColazione from "@/assets/menu-colazione.jpg";
 import menuTiramisu from "@/assets/menu-tiramisu.jpg";
 
 const items = [
-  { image: menuChianina, name: "Panino Chianina", desc: "Il re del menu. Manzo chianino, cheddar, salse artigianali.", price: "€10–14" },
-  { image: menuCinta, name: "Panino Cinta Senese", desc: "Maiale di razza toscana, formaggi misti, salsa BBQ.", price: "€10–14" },
-  { image: menuColazione, name: "Colazione dell'Operaio", desc: "Per i veri affamati. Salsiccia, uovo, bacon, fritti.", price: "€12–16" },
-  { image: menuTiramisu, name: "Tiramisù", desc: "Il dolce che ha conquistato Firenze.", price: "€4–6" },
+  { 
+    image: menuChianina, 
+    name: "Gyros greca", 
+    desc: "Il classico sapore ellenico con carne speziata, pita morbida e salsa tzatziki.", 
+    price: "€8.50" 
+  },
+  { 
+    image: menuCinta, 
+    name: "Schiacciata chianina re di panino", 
+    desc: "L'eccellenza toscana racchiusa in una schiacciata croccante con carne di Chianina di prima scelta.", 
+    price: "€9.50" 
+  },
+  { 
+    image: menuColazione, 
+    name: "Galletto ruspante 500 grammi", 
+    desc: "Mezzo chilo di pura bontà: galletto cotto a puntino, succoso e saporito.", 
+    price: "€18.90" 
+  },
+  { 
+    image: menuTiramisu, 
+    name: "Gyros all'Italiana", 
+    desc: "Un incontro unico tra la tradizione greca e ingredienti selezionati del nostro territorio.", 
+    price: "€8.50" 
+  },
 ];
 
 const FeaturedMenu = () => {
@@ -43,7 +63,7 @@ const FeaturedMenu = () => {
         </div>
 
         <div className="text-center mt-10">
-          <a href="https://deliveroo.it" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors font-accent uppercase tracking-wider text-sm">
+          <a href="https://deliveroo.it/it/menu/firenze/novoli-rifredi/paninoteca-da-tommy/?day=TODAY&time=19%3A15&timestamp=1772734500" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors font-accent uppercase tracking-wider text-sm">
             <ArrowRight className="w-4 h-4" />
             Vedi tutto il menu su Deliveroo
           </a>
