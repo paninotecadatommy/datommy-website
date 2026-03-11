@@ -1,21 +1,26 @@
 import { useState } from "react";
-import { ArrowRight, Beef, ChefHat, Sandwich, Cookie, Beer, Camera, X } from "lucide-react";
-import menuChianina from "@/assets/menu-chianina.jpg";
-import menuCinta from "@/assets/menu-cinta.jpg";
-import menuColazione from "@/assets/menu-colazione.jpg";
-import menuTiramisu from "@/assets/menu-tiramisu.jpg";
-import menuFries from "@/assets/menu-fries.jpg";
-import menuBeer from "@/assets/menu-beer.jpg";
-import menuPollo from "@/assets/menu-pollo.jpg";
-import menuVeggie from "@/assets/menu-veggie.jpg";
-import menuPiadina from "@/assets/menu-piadina.jpg";
-import menuWings from "@/assets/menu-wings.jpg";
-import menuSchiacciata from "@/assets/menu-schiacciata.jpg";
-import galleryInterior from "@/assets/gallery-interior.jpg";
-import galleryGrill from "@/assets/gallery-grill.jpg";
-import gallerySauces from "@/assets/gallery-sauces.jpg";
+import {
+  ArrowRight,
+  Beef,
+  ChefHat,
+  Sandwich,
+  Cookie,
+  Camera,
+  X,
+  Utensils,
+} from "lucide-react";
 
-type Category = "tutti" | "panini" | "schiacciate" | "contorni" | "dolci" | "bevande";
+import imgPanino from "@/assets/products/panino.jpg";
+import imgTagliere from "@/assets/products/tagliere.jpg";
+import imgPollo from "@/assets/products/pollo.jpg";
+import imgStuzzichini from "@/assets/products/stuzzichini.jpg";
+import imgDolci from "@/assets/products/crepe.jpg";
+import imgVeggie from "@/assets/products/veggie.jpg";
+import imgWings from "@/assets/products/alette.jpg";
+import imgPorchetta from "@/assets/products/porchetta.jpg";
+
+// Update Category Type
+type Category = "tutti" | "panini" | "piatti" | "stuzzichini" | "dolci";
 
 interface MenuItem {
   image: string;
@@ -28,153 +33,159 @@ interface MenuItem {
 
 const categories: { id: Category; label: string; icon: React.ReactNode }[] = [
   { id: "tutti", label: "Tutti", icon: <ChefHat className="w-4 h-4" /> },
-  { id: "panini", label: "Panini & Burger", icon: <Beef className="w-4 h-4" /> },
-  { id: "schiacciate", label: "Schiacciate & Piadine", icon: <Sandwich className="w-4 h-4" /> },
-  { id: "contorni", label: "Contorni", icon: <Cookie className="w-4 h-4" /> },
-  { id: "dolci", label: "Dolci", icon: <Cookie className="w-4 h-4" /> },
-  { id: "bevande", label: "Bevande", icon: <Beer className="w-4 h-4" /> },
+  {
+    id: "panini",
+    label: "Crea il tuo Panino",
+    icon: <Sandwich className="w-4 h-4" />,
+  },
+  {
+    id: "piatti",
+    label: "Piatti & Taglieri",
+    icon: <Utensils className="w-4 h-4" />,
+  },
+  {
+    id: "stuzzichini",
+    label: "Stuzzichini",
+    icon: <Cookie className="w-4 h-4" />,
+  },
+  { id: "dolci", label: "Le Dolcezze", icon: <Cookie className="w-4 h-4" /> },
 ];
 
 const menuItems: MenuItem[] = [
+  // --- PANINI ---
   {
-    image: menuChianina,
-    name: "Panino Chianina Classic",
-    desc: "Manzo chianino, cheddar, salsa ai funghi, salsa rustica, pomodori secchi, lattuga, pomodoro.",
-    price: "€10.50",
+    image: imgPanino,
+    name: "Crea il tuo Panino",
+    desc: "Base con Hamburger Chianina, Salsiccia, Porchetta o Veggie. Include formaggi, salse home-made e verdure fresche/grigliate.",
+    price: "€7,50",
     category: "panini",
-    badge: "Best Seller",
+    badge: "Personalizzabile",
   },
   {
-    image: menuCinta,
-    name: "Panino Cinta Senese",
-    desc: "Maiale di Cinta Senese, formaggi misti, BBQ, pomodori secchi, salsa olive, lattuga.",
-    price: "€11.00",
-    category: "panini",
-    badge: "Premium",
-  },
-  {
-    image: menuPollo,
-    name: "Panino Pollo & Tacchino",
-    desc: "Polpetta pollo e tacchino, pomodori secchi, salsa funghi, formaggi misti, rucola.",
-    price: "€9.50",
+    image: imgPanino,
+    name: "Carni Speciali",
+    desc: "Upgrade per il tuo panino: Angus, Cinta Senese, Cinghiale, Agnello o Cervo.",
+    price: "+€1,50",
     category: "panini",
   },
+
+  // --- PIATTI & TAGLIERI ---
   {
-    image: menuVeggie,
-    name: "Veggie Burger",
-    desc: "Polpetta di ceci, verdure grigliate, salsa rustica, olive, rucola, pomodori secchi.",
-    price: "€8.50",
-    category: "panini",
+    image: imgTagliere,
+    name: "I Taglieri Da Tommy",
+    desc: "Gran piatto con contorni a scelta, formaggi, verdure, patatine fritte, salse artigianali e pane caldo.",
+    price: "€12,90",
+    category: "piatti",
+    badge: "Specialità",
   },
   {
-    image: menuChianina,
-    name: "Chianina Spicy",
-    desc: "Manzo chianino, salsa piccante, tabasco, pomodori secchi, BBQ, lattuga, formaggi misti.",
-    price: "€11.50",
-    category: "panini",
-    badge: "Piccante",
+    image: imgWings,
+    name: "Alette di Pollo Rustiche",
+    desc: "Servite con abbondante porzione di patatine fritte e salse.",
+    price: "€13,90",
+    category: "piatti",
   },
   {
-    image: menuColazione,
-    name: "Colazione dell'Operaio",
-    desc: "Salsiccia, hot dog DOC, uovo bio, cipolla grigliata, bacon croccante, patatine, lattuga, pomodoro, toast.",
-    price: "€14.90",
-    category: "panini",
+    image: imgPollo,
+    name: "Galletto Ruspante (500gr)",
+    desc: "Galletto intero cotto alla perfezione, servito con patatine fritte.",
+    price: "€16,90",
+    category: "piatti",
+    badge: "Piatto Forte",
+  },
+  {
+    image: imgVeggie,
+    name: "Hamburger di Ceci (Veg)",
+    desc: "Piatto vegetariano con burger di ceci, verdure miste e contorni.",
+    price: "€12,90",
+    category: "piatti",
+  },
+  {
+    image: imgPorchetta,
+    name: "Porchetta Artigianale DOP",
+    desc: "Piatto di porchetta selezionata servita con salse e patate.",
+    price: "€15,90",
+    category: "piatti",
+  },
+  {
+    image: imgTagliere,
+    name: "Gran Piatto Bavarese",
+    desc: "La massima espressione del nostro menù: selezione completa di carni e contorni.",
+    price: "€17,90",
+    category: "piatti",
     badge: "XL",
   },
+
+  // --- STUZZICHINI ---
   {
-    image: menuSchiacciata,
-    name: "Schiacciata Toscana",
-    desc: "Schiacciata croccante farcita con affettati toscani, formaggi e salse artigianali.",
-    price: "€8.50",
-    category: "schiacciate",
+    image: imgStuzzichini,
+    name: "Fish and Chips",
+    desc: "Calamari e gamberi fritti nel cartoccio con patatine dorate.",
+    price: "€8,90",
+    category: "stuzzichini",
   },
   {
-    image: menuPiadina,
-    name: "Piadina Classica",
-    desc: "Piadina romagnola con affettati, formaggio e salse a scelta.",
-    price: "€7.50",
-    category: "schiacciate",
+    image: imgStuzzichini,
+    name: "Gli Stuzzichini Misti",
+    desc: "Bocconcini di pollo, anelli di cipolla, mozzarelline, fiori di zucca, arancini e crocchette. 2 salse incluse.",
+    price: "€6,50",
+    category: "stuzzichini",
   },
+
+  // --- DOLCI ---
   {
-    image: menuSchiacciata,
-    name: "Schiacciata Chianina",
-    desc: "Schiacciata croccante con carne di Chianina di prima scelta e condimenti premium.",
-    price: "€9.50",
-    category: "schiacciate",
-    badge: "Top",
-  },
-  {
-    image: menuPiadina,
-    name: "Piadina Vegetariana",
-    desc: "Piadina con verdure grigliate, formaggio fresco e salsa alle erbe.",
-    price: "€7.00",
-    category: "schiacciate",
-  },
-  {
-    image: menuFries,
-    name: "Patatine Fritte",
-    desc: "Patatine dorate e croccanti, servite calde.",
-    price: "€3.50",
-    category: "contorni",
-  },
-  {
-    image: menuWings,
-    name: "Alette di Pollo",
-    desc: "Alette croccanti con salsa a scelta.",
-    price: "€6.50",
-    category: "contorni",
-  },
-  {
-    image: menuWings,
-    name: "Fiori di Zucca Fritti",
-    desc: "Fiori di zucca in pastella leggera, fritti al momento.",
-    price: "€5.50",
-    category: "contorni",
-  },
-  {
-    image: menuTiramisu,
-    name: "Tiramisù",
-    desc: "Il dolce che ha conquistato Firenze. Fatto in casa ogni giorno.",
-    price: "€4.50",
+    image: imgDolci,
+    name: "Tiramisù della Nonna",
+    desc: "Il classico dolce italiano fatto in casa con ricetta tradizionale.",
+    price: "€5,50",
     category: "dolci",
-    badge: "Fatto in Casa",
   },
   {
-    image: menuBeer,
-    name: "Birra alla Spina",
-    desc: "Birra artigianale alla spina, media o grande.",
-    price: "da €4.00",
-    category: "bevande",
-  },
-  {
-    image: menuBeer,
-    name: "Birra in Bottiglia",
-    desc: "Selezione di birre artigianali e commerciali in bottiglia.",
-    price: "da €3.50",
-    category: "bevande",
+    image: imgDolci,
+    name: "Crêpe Biologica",
+    desc: "Sottile e golosa crêpe biologica con farciture a scelta.",
+    price: "€5,50",
+    category: "dolci",
   },
 ];
 
-const galleryImages = [
-  { src: galleryInterior, alt: "L'atmosfera di Da Tommy", caption: "L'atmosfera" },
-  { src: galleryGrill, alt: "La griglia in azione", caption: "La Griglia" },
-  { src: gallerySauces, alt: "Le nostre salse artigianali", caption: "Le Salse" },
-  { src: menuChianina, alt: "I nostri panini gourmet", caption: "I Panini" },
-  { src: menuColazione, alt: "Piatti speciali Da Tommy", caption: "Piatti Speciali" },
-  { src: menuCinta, alt: "Cinta Senese di prima scelta", caption: "Cinta Senese" },
-];
+const galleryModules = import.meta.glob("@/assets/media/*", {
+  eager: true,
+  import: "default",
+}) as Record<string, string>;
 
-const DELIVEROO_URL = "https://deliveroo.it/it/menu/firenze/novoli-rifredi/paninoteca-da-tommy/?day=TODAY&time=19%3A15&timestamp=1772734500";
+const galleryImages = Object.entries(galleryModules).map(([path, src]) => {
+  const filename =
+    path
+      .split("/")
+      .pop()
+      ?.replace(/\.[^/.]+$/, "") ?? "";
+
+  const isNumeric = /^\d+$/.test(filename);
+
+  const caption = isNumeric
+    ? ""
+    : filename.replace(/[-_]/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+
+  return {
+    src,
+    alt: caption || "Gallery Image",
+    caption,
+  };
+});
+
+const DELIVEROO_URL =
+  "https://deliveroo.it/it/menu/firenze/novoli-rifredi/paninoteca-da-tommy/?day=TODAY&time=19%3A15&timestamp=1772734500";
 
 const FeaturedMenu = () => {
   const [activeCategory, setActiveCategory] = useState<Category>("tutti");
   const [activeTab, setActiveTab] = useState<"menu" | "gallery">("menu");
   const [lightbox, setLightbox] = useState<string | null>(null);
 
-  const filteredItems = activeCategory === "tutti"
-    ? menuItems
-    : menuItems.filter((item) => item.category === activeCategory);
+  const filteredItems =
+    activeCategory === "tutti"
+      ? menuItems
+      : menuItems.filter((item) => item.category === activeCategory);
 
   return (
     <section className="py-20" id="menu">
@@ -261,7 +272,9 @@ const FeaturedMenu = () => {
                         {item.price}
                       </span>
                     </div>
-                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{item.desc}</p>
+                    <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                      {item.desc}
+                    </p>
                     <a
                       href={DELIVEROO_URL}
                       target="_blank"
@@ -277,7 +290,8 @@ const FeaturedMenu = () => {
 
             {/* Items count */}
             <p className="text-center text-muted-foreground text-xs font-accent uppercase tracking-wider mt-6">
-              {filteredItems.length} prodott{filteredItems.length === 1 ? "o" : "i"} trovati
+              {filteredItems.length} prodott
+              {filteredItems.length === 1 ? "o" : "i"} trovati
             </p>
           </>
         )}
@@ -294,7 +308,9 @@ const FeaturedMenu = () => {
                     i === 0 ? "col-span-2 row-span-2" : ""
                   }`}
                 >
-                  <div className={`overflow-hidden ${i === 0 ? "aspect-[4/3]" : "aspect-square"}`}>
+                  <div
+                    className={`overflow-hidden ${i === 0 ? "aspect-[4/3]" : "aspect-square"}`}
+                  >
                     <img
                       src={img.src}
                       alt={img.alt}
