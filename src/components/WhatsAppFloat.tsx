@@ -1,6 +1,13 @@
 import { Phone } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 const WhatsAppFloat = () => {
+  const location = useLocation();
+
+  if (location.pathname === "/menu") {
+    return null;
+  }
+
   return (
     <a
       href="tel:0554476493"
